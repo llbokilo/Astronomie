@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Satellite index{% endblock %}
+
+{% block body %}
+    <h1>Satellite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Diametre</th>
+                <th>Gravite</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for satellite in satellites %}
+            <tr>
+                <td>{{ satellite.id }}</td>
+                <td>{{ satellite.Nom }}</td>
+                <td>{{ satellite.Diametre }}</td>
+                <td>{{ satellite.Gravite }}</td>
+                <td>{{ satellite.Description }}</td>
+                <td>
+                    <a href="{{ path('satellite_show', {'id': satellite.id}) }}">show</a>
+                    <a href="{{ path('satellite_edit', {'id': satellite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('satellite_new') }}">Create new</a>
+{% endblock %}

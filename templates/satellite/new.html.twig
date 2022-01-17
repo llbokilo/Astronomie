@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Satellite{% endblock %}
+
+{% block body %}
+    <h1>Create new Satellite</h1>
+
+    {{ include('satellite/_form.html.twig') }}
+
+    <a href="{{ path('satellite_index') }}">back to list</a>
+{% endblock %}

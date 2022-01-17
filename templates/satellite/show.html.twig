@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Satellite{% endblock %}
+
+{% block body %}
+    <h1>Satellite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ satellite.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ satellite.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Diametre</th>
+                <td>{{ satellite.Diametre }}</td>
+            </tr>
+            <tr>
+                <th>Gravite</th>
+                <td>{{ satellite.Gravite }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ satellite.Description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('satellite_index') }}">back to list</a>
+
+    <a href="{{ path('satellite_edit', {'id': satellite.id}) }}">edit</a>
+
+    {{ include('satellite/_delete_form.html.twig') }}
+{% endblock %}

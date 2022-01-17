@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planete index{% endblock %}
+
+{% block body %}
+    <h1>Planete index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Diametre</th>
+                <th>Gravite</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planete in planetes %}
+            <tr>
+                <td>{{ planete.id }}</td>
+                <td>{{ planete.Nom }}</td>
+                <td>{{ planete.Diametre }}</td>
+                <td>{{ planete.Gravite }}</td>
+                <td>{{ planete.Description }}</td>
+                <td>
+                    <a href="{{ path('planete_show', {'id': planete.id}) }}">show</a>
+                    <a href="{{ path('planete_edit', {'id': planete.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('planete_new') }}">Create new</a>
+{% endblock %}
