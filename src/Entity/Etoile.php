@@ -22,6 +22,9 @@ class Etoile
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $Description;
 
+    #[ORM\Column(type: 'float')]
+    private $Gravite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,5 +64,25 @@ class Etoile
         $this->Description = $Description;
 
         return $this;
+    }
+
+    public function getGravite(): ?float
+    {
+        return $this->Gravite;
+    }
+
+    public function setGravite(float $Gravite): self
+    {
+        $this->Gravite = $Gravite;
+
+        return $this;
+    }
+
+    public function __construct($pNom, $pDiametre, $pGravite, $pDescription)
+    {
+        $this->Nom=$pNom;
+        $this->Diametre=$pDiametre;
+        $this->Gravite=$pGravite;
+        $this->Description=$pDescription;
     }
 }

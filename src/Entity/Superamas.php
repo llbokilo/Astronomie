@@ -62,4 +62,11 @@ class Superamas
 
         return $this;
     }
+
+    public function __construct($pNom, $pTaille, $pDescription)
+    {
+        $this->Nom=$pNom;
+        $this->Taille=$pTaille;
+        $this->Description=$pDescription;
+    }
 }

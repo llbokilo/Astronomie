@@ -77,4 +77,12 @@ class Galaxie
 
         return $this;
     }
+
+    public function __construct($pNom, $pTaille, $pDescription, $pDiametre)
+    {
+        $this->Nom=$pNom;
+        $this->Taille=$pTaille;
+        $this->Description=$pDescription;
+        $this->Diametre=$pDiametre;
+    }
 }

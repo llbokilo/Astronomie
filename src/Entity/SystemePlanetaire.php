@@ -47,4 +47,10 @@ class SystemePlanetaire
 
         return $this;
     }
+
+    public function __construct($pNom, $pDescription)
+    {
+        $this->Nom=$pNom;
+        $this->Description=$pDescription;
+    }
 }

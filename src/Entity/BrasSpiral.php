@@ -77,4 +77,12 @@ class BrasSpiral
 
         return $this;
     }
+
+    public function __construct($pNom, $pLongueur, $pLargeur, $pDescription)
+    {
+        $this->Nom=$pNom;
+        $this->Longueur=$pLongueur;
+        $this->Largeur=$pLargeur;
+        $this->Description=$pDescription;
+    }
 }
