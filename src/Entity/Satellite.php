@@ -25,6 +25,10 @@ class Satellite
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $Description;
 
+    #[ORM\ManyToOne(targetEntity: Planete::class, inversedBy: 'satellites')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $Planete;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,5 +88,17 @@ class Satellite
         $this->Diametre=$pDiametre;
         $this->Gravite=$pGravite;
         $this->Description=$pDescription;
+    }
+
+    public function getPlanete(): ?Planete
+    {
+        return $this->Planete;
+    }
+
+    public function setPlanete(?Planete $Planete): self
+    {
+        $this->Planete = $Planete;
+
+        return $this;
     }
 }

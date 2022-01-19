@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BrasSpiralRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BrasSpiralRepository::class)]
@@ -24,6 +26,13 @@ class BrasSpiral
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $Description;
+
+    #[ORM\ManyToOne(targetEntity: Galaxie::class, inversedBy: 'brasSpirals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $Galaxie;
+
+    #[ORM\OneToMany(mappedBy: 'BrasSpiral', targetEntity: SystemePlanetaire::class, orphanRemoval: true)]
+    private $systemePlanetaires;
 
     public function getId(): ?int
     {
@@ -84,5 +93,48 @@ class BrasSpiral
         $this->Longueur=$pLongueur;
         $this->Largeur=$pLargeur;
         $this->Description=$pDescription;
+        $this->systemePlanetaires = new ArrayCollection();
+    }
+
+    public function getGalaxie(): ?Galaxie
+    {
+        return $this->Galaxie;
+    }
+
+    public function setGalaxie(?Galaxie $Galaxie): self
+    {
+        $this->Galaxie = $Galaxie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SystemePlanetaire[]
+     */
+    public function getSystemePlanetaires(): Collection
+    {
+        return $this->systemePlanetaires;
+    }
+
+    public function addSystemePlanetaire(SystemePlanetaire $systemePlanetaire): self
+    {
+        if (!$this->systemePlanetaires->contains($systemePlanetaire)) {
+            $this->systemePlanetaires[] = $systemePlanetaire;
+            $systemePlanetaire->setBrasSpiral($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSystemePlanetaire(SystemePlanetaire $systemePlanetaire): self
+    {
+        if ($this->systemePlanetaires->removeElement($systemePlanetaire)) {
+            // set the owning side to null (unless already changed)
+            if ($systemePlanetaire->getBrasSpiral() === $this) {
+                $systemePlanetaire->setBrasSpiral(null);
+            }
+        }
+
+        return $this;
     }
 }

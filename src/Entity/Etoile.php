@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EtoileRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EtoileRepository::class)]
@@ -24,6 +26,13 @@ class Etoile
 
     #[ORM\Column(type: 'float')]
     private $Gravite;
+
+    #[ORM\ManyToOne(targetEntity: SystemePlanetaire::class, inversedBy: 'etoiles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $SystemePlanetaire;
+
+    #[ORM\OneToMany(mappedBy: 'Etoile', targetEntity: Planete::class, orphanRemoval: true)]
+    private $planetes;
 
     public function getId(): ?int
     {
@@ -84,5 +93,48 @@ class Etoile
         $this->Diametre=$pDiametre;
         $this->Gravite=$pGravite;
         $this->Description=$pDescription;
+        $this->planetes = new ArrayCollection();
+    }
+
+    public function getSystemePlanetaire(): ?SystemePlanetaire
+    {
+        return $this->SystemePlanetaire;
+    }
+
+    public function setSystemePlanetaire(?SystemePlanetaire $SystemePlanetaire): self
+    {
+        $this->SystemePlanetaire = $SystemePlanetaire;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Planete[]
+     */
+    public function getPlanetes(): Collection
+    {
+        return $this->planetes;
+    }
+
+    public function addPlanete(Planete $planete): self
+    {
+        if (!$this->planetes->contains($planete)) {
+            $this->planetes[] = $planete;
+            $planete->setEtoile($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlanete(Planete $planete): self
+    {
+        if ($this->planetes->removeElement($planete)) {
+            // set the owning side to null (unless already changed)
+            if ($planete->getEtoile() === $this) {
+                $planete->setEtoile(null);
+            }
+        }
+
+        return $this;
     }
 }
