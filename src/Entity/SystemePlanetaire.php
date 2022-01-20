@@ -57,10 +57,11 @@ class SystemePlanetaire
         return $this;
     }
 
-    public function __construct($pNom, $pDescription)
+    public function __construct($pNom, $pDescription, $pBrasSpiral)
     {
         $this->Nom=$pNom;
         $this->Description=$pDescription;
+        $this->BrasSpiral=$pBrasSpiral;
         $this->etoiles = new ArrayCollection();
     }
 

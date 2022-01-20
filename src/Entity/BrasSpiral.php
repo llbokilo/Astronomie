@@ -87,12 +87,13 @@ class BrasSpiral
         return $this;
     }
 
-    public function __construct($pNom, $pLongueur, $pLargeur, $pDescription)
+    public function __construct($pNom, $pLongueur, $pLargeur, $pDescription, $pGalaxie)
     {
         $this->Nom=$pNom;
         $this->Longueur=$pLongueur;
         $this->Largeur=$pLargeur;
         $this->Description=$pDescription;
+        $this->Galaxie=$pGalaxie;
         $this->systemePlanetaires = new ArrayCollection();
     }
 

@@ -87,12 +87,13 @@ class Galaxie
         return $this;
     }
 
-    public function __construct($pNom, $pTaille, $pDescription, $pDiametre)
+    public function __construct($pNom, $pTaille, $pDescription, $pDiametre, $pGroupeGalaxies)
     {
         $this->Nom=$pNom;
         $this->Taille=$pTaille;
         $this->Description=$pDescription;
         $this->Diametre=$pDiametre;
+        $this->GroupeGalaxies=$pGroupeGalaxies;
         $this->brasSpirals = new ArrayCollection();
     }
 

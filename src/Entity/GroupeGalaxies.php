@@ -72,11 +72,12 @@ class GroupeGalaxies
         return $this;
     }
 
-    public function __construct($pNom, $pTaille, $pDescription)
+    public function __construct($pNom, $pTaille, $pDescription, $pSuperamas)
     {
         $this->Nom=$pNom;
         $this->Taille=$pTaille;
         $this->Description=$pDescription;
+        $this->Superamas=$pSuperamas;
         $this->galaxies = new ArrayCollection();
     }
 

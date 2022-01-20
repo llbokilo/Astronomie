@@ -87,12 +87,13 @@ class Etoile
         return $this;
     }
 
-    public function __construct($pNom, $pDiametre, $pGravite, $pDescription)
+    public function __construct($pNom, $pDiametre, $pGravite, $pDescription, $pSystemePlanetaire)
     {
         $this->Nom=$pNom;
         $this->Diametre=$pDiametre;
         $this->Gravite=$pGravite;
         $this->Description=$pDescription;
+        $this->SystemePlanetaire=$pSystemePlanetaire;
         $this->planetes = new ArrayCollection();
     }
 

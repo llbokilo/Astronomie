@@ -82,12 +82,13 @@ class Satellite
         return $this;
     }
 
-    public function __construct($pNom, $pDiametre, $pGravite, $pDescription)
+    public function __construct($pNom, $pDiametre, $pGravite, $pDescription, $pPlanete)
     {
         $this->Nom=$pNom;
         $this->Diametre=$pDiametre;
         $this->Gravite=$pGravite;
         $this->Description=$pDescription;
+        $this->Planete=$pPlanete;
     }
 
     public function getPlanete(): ?Planete

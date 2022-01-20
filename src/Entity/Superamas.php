@@ -72,11 +72,12 @@ class Superamas
         return $this;
     }
 
-    public function __construct($pNom, $pTaille, $pDescription)
+    public function __construct($pNom, $pTaille, $pDescription, $pSuperamasGalaxies)
     {
         $this->Nom=$pNom;
         $this->Taille=$pTaille;
         $this->Description=$pDescription;
+        $this->SuperamasGalaxies=$pSuperamasGalaxies;
         $this->groupeGalaxies = new ArrayCollection();
     }
 

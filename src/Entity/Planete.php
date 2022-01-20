@@ -87,12 +87,13 @@ class Planete
         return $this;
     }
 
-    public function __construct($pNom, $pDiametre, $pGravite, $pDescription)
+    public function __construct($pNom, $pDiametre, $pGravite, $pDescription, $pEtoile)
     {
         $this->Nom=$pNom;
         $this->Diametre=$pDiametre;
         $this->Gravite=$pGravite;
         $this->Description=$pDescription;
+        $this->Etoile=$pEtoile;
         $this->satellites = new ArrayCollection();
     }
 
