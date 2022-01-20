@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrasSpiral index{% endblock %}
+
+{% block body %}
+    <h1>BrasSpiral index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Longueur</th>
+                <th>Largeur</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bras_spiral in bras_spirals %}
+            <tr>
+                <td>{{ bras_spiral.id }}</td>
+                <td>{{ bras_spiral.Nom }}</td>
+                <td>{{ bras_spiral.Longueur }}</td>
+                <td>{{ bras_spiral.Largeur }}</td>
+                <td>{{ bras_spiral.Description }}</td>
+                <td>
+                    <a href="{{ path('bras_spiral_show', {'id': bras_spiral.id}) }}">show</a>
+                    <a href="{{ path('bras_spiral_edit', {'id': bras_spiral.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bras_spiral_new') }}">Create new</a>
+{% endblock %}

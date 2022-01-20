@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GroupeGalaxies index{% endblock %}
+
+{% block body %}
+    <h1>GroupeGalaxies index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupe_galaxy in groupe_galaxies %}
+            <tr>
+                <td>{{ groupe_galaxy.id }}</td>
+                <td>{{ groupe_galaxy.Nom }}</td>
+                <td>{{ groupe_galaxy.Taille }}</td>
+                <td>{{ groupe_galaxy.Description }}</td>
+                <td>
+                    <a href="{{ path('groupe_galaxies_show', {'id': groupe_galaxy.id}) }}">show</a>
+                    <a href="{{ path('groupe_galaxies_edit', {'id': groupe_galaxy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('groupe_galaxies_new') }}">Create new</a>
+{% endblock %}

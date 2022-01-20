@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SuperamasGalaxies{% endblock %}
+
+{% block body %}
+    <h1>Create new SuperamasGalaxies</h1>
+
+    {{ include('superamas_galaxies/_form.html.twig') }}
+
+    <a href="{{ path('superamas_galaxies_index') }}">back to list</a>
+{% endblock %}

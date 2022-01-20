@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etoile{% endblock %}
+
+{% block body %}
+    <h1>Etoile</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etoile.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ etoile.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Diametre</th>
+                <td>{{ etoile.Diametre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ etoile.Description }}</td>
+            </tr>
+            <tr>
+                <th>Gravite</th>
+                <td>{{ etoile.Gravite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('etoile_index') }}">back to list</a>
+
+    <a href="{{ path('etoile_edit', {'id': etoile.id}) }}">edit</a>
+
+    {{ include('etoile/_delete_form.html.twig') }}
+{% endblock %}

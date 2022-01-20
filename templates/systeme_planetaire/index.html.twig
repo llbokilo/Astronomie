@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SystemePlanetaire index{% endblock %}
+
+{% block body %}
+    <h1>SystemePlanetaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for systeme_planetaire in systeme_planetaires %}
+            <tr>
+                <td>{{ systeme_planetaire.id }}</td>
+                <td>{{ systeme_planetaire.Nom }}</td>
+                <td>{{ systeme_planetaire.Description }}</td>
+                <td>
+                    <a href="{{ path('systeme_planetaire_show', {'id': systeme_planetaire.id}) }}">show</a>
+                    <a href="{{ path('systeme_planetaire_edit', {'id': systeme_planetaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('systeme_planetaire_new') }}">Create new</a>
+{% endblock %}

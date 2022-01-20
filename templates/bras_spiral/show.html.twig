@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BrasSpiral{% endblock %}
+
+{% block body %}
+    <h1>BrasSpiral</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bras_spiral.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ bras_spiral.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Longueur</th>
+                <td>{{ bras_spiral.Longueur }}</td>
+            </tr>
+            <tr>
+                <th>Largeur</th>
+                <td>{{ bras_spiral.Largeur }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ bras_spiral.Description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bras_spiral_index') }}">back to list</a>
+
+    <a href="{{ path('bras_spiral_edit', {'id': bras_spiral.id}) }}">edit</a>
+
+    {{ include('bras_spiral/_delete_form.html.twig') }}
+{% endblock %}

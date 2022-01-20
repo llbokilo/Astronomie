@@ -16,6 +16,7 @@ class PlaneteType extends AbstractType
             ->add('Diametre')
             ->add('Gravite')
             ->add('Description')
+            ->add('Etoile')
         ;
     }
 

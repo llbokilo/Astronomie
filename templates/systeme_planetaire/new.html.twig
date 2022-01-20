@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SystemePlanetaire{% endblock %}
+
+{% block body %}
+    <h1>Create new SystemePlanetaire</h1>
+
+    {{ include('systeme_planetaire/_form.html.twig') }}
+
+    <a href="{{ path('systeme_planetaire_index') }}">back to list</a>
+{% endblock %}

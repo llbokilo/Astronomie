@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SystemePlanetaire{% endblock %}
+
+{% block body %}
+    <h1>Edit SystemePlanetaire</h1>
+
+    {{ include('systeme_planetaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('systeme_planetaire_index') }}">back to list</a>
+
+    {{ include('systeme_planetaire/_delete_form.html.twig') }}
+{% endblock %}

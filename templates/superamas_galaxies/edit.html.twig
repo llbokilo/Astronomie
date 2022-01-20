@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SuperamasGalaxies{% endblock %}
+
+{% block body %}
+    <h1>Edit SuperamasGalaxies</h1>
+
+    {{ include('superamas_galaxies/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('superamas_galaxies_index') }}">back to list</a>
+
+    {{ include('superamas_galaxies/_delete_form.html.twig') }}
+{% endblock %}

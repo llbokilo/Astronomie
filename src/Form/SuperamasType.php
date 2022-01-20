@@ -2,28 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Satellite;
+use App\Entity\Superamas;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SatelliteType extends AbstractType
+class SuperamasType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('Nom')
-            ->add('Diametre')
-            ->add('Gravite')
+            ->add('Taille')
             ->add('Description')
-            ->add('Planete')
+            ->add('SuperamasGalaxies')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Satellite::class,
+            'data_class' => Superamas::class,
         ]);
     }
 }

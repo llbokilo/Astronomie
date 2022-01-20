@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BrasSpiral{% endblock %}
+
+{% block body %}
+    <h1>Create new BrasSpiral</h1>
+
+    {{ include('bras_spiral/_form.html.twig') }}
+
+    <a href="{{ path('bras_spiral_index') }}">back to list</a>
+{% endblock %}

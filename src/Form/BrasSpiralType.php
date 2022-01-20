@@ -2,28 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\Satellite;
+use App\Entity\BrasSpiral;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SatelliteType extends AbstractType
+class BrasSpiralType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('Nom')
-            ->add('Diametre')
-            ->add('Gravite')
+            ->add('Longueur')
+            ->add('Largeur')
             ->add('Description')
-            ->add('Planete')
+            ->add('Galaxie')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Satellite::class,
+            'data_class' => BrasSpiral::class,
         ]);
     }
 }

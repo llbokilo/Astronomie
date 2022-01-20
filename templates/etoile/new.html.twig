@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Etoile{% endblock %}
+
+{% block body %}
+    <h1>Create new Etoile</h1>
+
+    {{ include('etoile/_form.html.twig') }}
+
+    <a href="{{ path('etoile_index') }}">back to list</a>
+{% endblock %}
