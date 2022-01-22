@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/superamas/galaxies')]
+#[Route('/superamas_galaxies')]
 class SuperamasGalaxiesController extends AbstractController
 {
     #[Route('/', name: 'superamas_galaxies_index', methods: ['GET'])]
